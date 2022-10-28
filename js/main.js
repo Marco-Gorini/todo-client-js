@@ -59,9 +59,11 @@ function getAllThingsToDo(){
 //Post Request, it adds a thing to do
 function addNewThing(){
     if(txtToDo.value != ""){
-        const newToDo = txtToDo.value;
-        const url = "http://localhost:8080/todo/addtodo/" + newToDo;
-        axios.post(url)
+        const argument = {
+            text: txtToDo.value
+        }
+        const url = "http://localhost:8080/todo/addtodo";
+        axios.post(url,argument)
         .then((response) => {
             getAllThingsToDo();
             txtToDo.value = "";
